@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fi">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Confirmation</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body class="container">
+        <h3>Your application has been received sucessfully!</h3>
+        
+        <h3>Your information</h3>
+        
+            <table>
+                <tr>
+                    <td><label>First Name:</label></td>
+                    <td th:text="${appl.firstName}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Last Name:</label></td>
+                    <td th:text="${appl.lastName}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Date of Birth:</label></td>
+                    <td th:text="${#dates.format(appl.dateOfBirth, 'dd.MM.yyyy')}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td th:text="${appl.gender}"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><label>Why are you applying this job?</label></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" th:text="${appl.description}"></td>
+                </tr>
+            </table>
+        
+        <p/>
+        <p><a th:href="@{/}">Back</a></p>
+    </body>
+</html>

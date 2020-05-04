@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fi">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Application</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body  class="container">
+        <h3>
+            Apply now!
+        </h3>
+        <form method="POST" th:action="@{/}" th:object="${appl}" >
+            <table>
+                <tr>
+                    <td><label>First Name</label></td>
+                    <td><input type="text" name="firstName" th:field="*{firstName}" /></td>
+                    <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">The length must be between 1 and 50!</td>
+                </tr>
+
+                <tr>
+                    <td><label>Last Name</label></td>
+                    <td><input type="text" name="lastName" th:field="*{lastName}" /></td>
+                    <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">The length must be between 1 and 50!</td>
+                </tr>
+
+                <tr>
+                    <td><label>Date of Birth</label></td>
+                    <td><input type="date" name="dateOfBirth" th:field="*{dateOfBirth}" /></td>
+                    <td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Use format yyyy-MM-dd, age between 15 and 100!</td>
+                </tr>
+
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td>
+                          <input type="radio" name="gender" value="Male" checked="" /> Male
+                          <input type="radio" name="gender" value="Female"/> Female
+                    </td>
+                    <td th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Select male or female!</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3"><label>Why are you applying this job?</label></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><textarea name="description" ></textarea></td> 
+                    <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Can't be left empty!</td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Apply" />
+        </form>
+    </body>
+</html>
