@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  maven: circleci/docker@1.0.0
-
+  docker: circleci/docker@1.0.0
+  
 workflows:
   deploy:
     jobs:
