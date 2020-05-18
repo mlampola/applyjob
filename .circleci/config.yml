@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@1.0.0
+  heroku: circleci/heroku@1.0.1
   
 workflows:
   deploy:
@@ -9,3 +9,4 @@ workflows:
       - docker/publish:
           image: registry.heroku.com/devopsdckr-3-2/web
           tag: 'latest'
+          registry: registry.heroku.com
