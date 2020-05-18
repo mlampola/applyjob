@@ -7,5 +7,5 @@ workflows:
   deploy:
     jobs:
       - docker/publish:
-          image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
+          image: registry.heroku.com/devopsdckr-3-2/web
           tag: 'latest'
