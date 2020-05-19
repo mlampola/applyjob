@@ -9,7 +9,7 @@ jobs:
           name: Build and push Docker image to Heroku
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
-            docker build -t registry.heroku.com/devopsdckr-3-2/web --build-arg DB_URL=$HEROKU_DATABASE_URL
+            docker build -t registry.heroku.com/devopsdckr-3-2/web --build-arg DB_URL=$HEROKU_DATABASE_URL .
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a devopsdckr-3-2 web
             HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a devopsdckr-3-2 web
