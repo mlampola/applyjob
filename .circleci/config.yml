@@ -17,3 +17,4 @@ workflows:
   heroku_deploy:
     jobs:
       - deploy-dev
+          extra_build_args: '--build-arg DB_URL=$HEROKU_DATABASE_URL'
