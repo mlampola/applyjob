@@ -15,4 +15,5 @@ jobs:
 
 workflows:
   heroku_deploy:
-    - deploy-dev
+    jobs:
+      - deploy-dev
