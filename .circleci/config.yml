@@ -1,3 +1,4 @@
+jobs:
   deploy-dev:
       machine: true
       steps:
