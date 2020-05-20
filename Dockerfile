@@ -5,7 +5,7 @@ EXPOSE 8080
 RUN apt-get update && apt-get -y install maven
 RUN mvn clean package
 ARG DB_URL
-ARG BUILD_ENV=production
+ARG BUILD_ENV
 ENV DATABASE_URL=$DB_URL
 ENV BUILD_PROFILE=$BUILD_ENV
 RUN echo $BUILD_PROFILE/$DATABASE_URL
