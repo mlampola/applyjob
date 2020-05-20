@@ -9,4 +9,4 @@ ARG BUILD_ENV=production
 ENV DATABASE_URL=$DB_URL
 ENV BUILD_PROFILE=$BUILD_ENV
 RUN echo $BUILD_PROFILE/$DATABASE_URL
-CMD java -Xmx512M -XX:+CMSClassUnloadingEnabled -Dspring.profiles.active=$BUILD_PROFILE -debug -jar ./target/ApplyJob-1.0-SNAPSHOT.jar
+CMD java -Xmx512M -XX:+CMSClassUnloadingEnabled -Dserver.port=$PORT -Dspring.profiles.active=$BUILD_PROFILE -debug -jar ./target/ApplyJob-1.0-SNAPSHOT.jar
